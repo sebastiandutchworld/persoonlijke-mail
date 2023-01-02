@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="sale_view_quotation_tree_with_onboarding_dws_contacts" model="ir.ui.view">
+        <field name="name">sale.view.quotation.tree.with.onboarding.dws.contacts</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_quotation_tree_with_onboarding" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="contact_person" optional="show" widget="many2many_tags"/>
+            </xpath>
+        </field>
+    </record>
+    <record id="sale_view_order_tree_dws_contacts" model="ir.ui.view">
+        <field name="name">sale.view.order.tree.dws.contacts</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_tree" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="contact_person" optional="show" widget="many2many_tags"/>                
+            </xpath>
+        </field>
+    </record>
+    <record id="sale_view_order_form_contacts" model="ir.ui.view">
+        <field name="name">sale.view.order.form.contacts</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//div[@class='o_td_label']" position="before">
+                <field name="contact_person" widget="many2many_tags"/>
+                <field name="purchase_contact"/>
+            </xpath>
+        </field>
+    </record>
+    <record id="dws_contacts_view_sales_order_filter" model="ir.ui.view">
+        <field name="name">dws.contacts.sale.order.list.select</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_sales_order_filter" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='analytic_account_id']" position="after">
+                <field name="contact_person" widget="many2many_tags"/>
+                <field name="purchase_contact"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

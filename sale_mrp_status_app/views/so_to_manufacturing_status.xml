@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<!-- add mrp status o[ption in sale order] -->
+		<record model="ir.ui.view" id="so_to_mrp_form">
+			<field name="name">saleorder.to.mrp.form</field>
+			<field name="model">sale.order</field>
+			<field name="inherit_id" ref="sale.view_order_form"/>
+			<field name="arch" type="xml">
+				<xpath expr="//field[@name='payment_term_id']" position="after">
+					<field name="mrp_state" string="MRP Status" readonly="1"/>
+				</xpath>
+				<xpath expr="//button[@name='action_view_invoice']" position="before">
+				<button type="object" name="action_view_custom_mrp" class="oe_stat_button" icon="fa-cogs" attrs="{'invisible': [('custom_mrp_count','=', 0)]}">
+					<field name="custom_mrp_count" widget="statinfo" string="Manufacturing"/>
+				</button>
+			</xpath>
+			</field>
+		</record>
+
+		<record id="so_to_mrp_tree" model="ir.ui.view">
+			<field name="name">saleorder.to.mrp.tree</field>
+			<field name="model">sale.order</field>
+			<field name="inherit_id" ref="sale.view_order_tree"/>
+			<field name="arch" type="xml">
+				<xpath expr="//tree/field[@name='invoice_status']" position="after">
+					<field name="mrp_state" string="Manufacturing Status"/>
+				</xpath>				
+			</field>
+		</record>
+
+	</data>
+</odoo>

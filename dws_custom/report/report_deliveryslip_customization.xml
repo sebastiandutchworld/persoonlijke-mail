@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="report_delivery_document_translate_customization" inherit_id="stock.report_delivery_document">
+            <xpath expr="//t[@t-if='o.backorder_ids and backorders']/p" position="replace">
+                <p>
+                    <span>Not all items could be shipped, the following items will be shipped as soon as they become available.</span>
+                </p>
+            </xpath>
+        </template>
+    </data>
+</odoo>

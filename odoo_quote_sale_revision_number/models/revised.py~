@@ -1,0 +1,24 @@
+# -*- coding: utf-8 -*-
+
+from odoo import models, fields, api
+
+class Revised(models.Model):
+    _name = 'saleorder.revised'
+    
+    sale_order_id = fields.Many2one(
+        'sale.order',
+        string='Sale order',
+    )
+    revised_number = fields.Char(
+        string='Revised Number',
+        readonly=True,
+    )
+    revised_line_ids = fields.One2many(
+        'line.revised',
+        'line_custom_id',
+        string='Revised Sale Line',
+        readonly=True,
+        
+    )
+    
+# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

@@ -1,0 +1,45 @@
+# -*- coding: utf-8 -*-
+
+from odoo import models, fields, api
+
+class RevisedLine(models.Model):
+    _name = 'line.revised'
+    
+    line_custom_id = fields.Many2one(
+        'saleorder.revised',
+        string='Revised Line',
+    )
+    
+    product_id_rev = fields.Many2one(
+        'product.product',
+        string='Product',
+    )
+    layout_category_id_rev = fields.Many2one(
+        'sale.layout_category',
+        string='Section',
+    )
+    name_rev = fields.Char(
+        string='Description',
+    )
+    qty_rev = fields.Char(
+        string='Ordered Quantity',
+    )
+    uom_rev = fields.Many2one(
+        'product.uom',
+        string='Unit of Measure',
+    )
+    price_rev = fields.Float(
+        string='Price Unit',
+    )
+    discunt_rev = fields.Float(
+        string='Discount(%)',
+    )
+    subtotal_rev = fields.Float(
+        string='Subtotal',
+    )
+    total_rev = fields.Float(
+        string='Total',
+    )
+    
+# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
+    

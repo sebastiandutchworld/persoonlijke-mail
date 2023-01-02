@@ -1,0 +1,598 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* dws_gascontrol
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0+e-20200106\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-05-04 13:02+0000\n"
+"PO-Revision-Date: 2020-05-04 13:02+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: dws_gascontrol
+#: model:ir.actions.report,name:dws_gascontrol.action_report_delivery_internal
+msgid "Work Order"
+msgstr "Werkbon"
+
+#. module: dws_gascontrol
+#: model:ir.actions.report,print_report_name:dws_gascontrol.action_report_delivery_internal
+msgid "'Work Order - %s - %s' % (object.partner_id.name or '', object.name)"
+msgstr "'Werkbon - %s - %s' % (object.partner_id.name or '', object.name)"
+
+#. module: dws_gascontrol
+#: model:mail.template,report_name:dws_gascontrol.email_template_edi_sale_formal
+#: model:mail.template,report_name:dws_gascontrol.mail_template_sale_confirmation_formal
+#: model:mail.template,report_name:dws_gascontrol.order_received_formal
+#: model:mail.template,report_name:dws_gascontrol.order_received_informal
+msgid "${(object.name or '').replace('/','_')}"
+msgstr ""
+
+#. module: dws_gascontrol
+#: model:mail.template,subject:dws_gascontrol.mail_template_sale_confirmation_formal
+msgid ""
+"${object.company_id.name} ${(object.get_portal_last_transaction().state == "
+"'pending') and 'Pending Order' or 'Order'} (Ref ${object.name or 'n/a' })"
+msgstr ""
+
+#. module: dws_gascontrol
+#: model:mail.template,subject:dws_gascontrol.email_template_edi_invoice_formal
+msgid "${object.company_id.name} Invoice (Ref ${object.name or 'n/a'})"
+msgstr ""
+
+#. module: dws_gascontrol
+#: model:mail.template,subject:dws_gascontrol.email_template_edi_purchase_done_formal
+msgid "${object.company_id.name} Order (Ref ${object.name or 'n/a' })"
+msgstr ""
+
+#. module: dws_gascontrol
+#: model:mail.template,subject:dws_gascontrol.email_template_edi_sale_formal
+#: model:mail.template,subject:dws_gascontrol.order_received_formal
+#: model:mail.template,subject:dws_gascontrol.order_received_informal
+msgid ""
+"${object.state in ('draft', 'sent') and 'Quotation' or 'Order'} "
+"${object.name}"
+msgstr ""
+
+#. module: dws_gascontrol
+#: model:mail.template,body_html:dws_gascontrol.order_received_formal
+msgid ""
+"<div style=\"margin: 0px; padding: 0px;\">\n"
+"                    <p style=\"margin: 0px; padding: 0px; font-size: 13px;\">\n"
+"                        Confirmation of receipt for order ${object.internal_reference}\n"
+"                        <br/><br/>\n"
+"                        Dear Sir / Madam {object.partner_id.name},\n"
+"                        <br/><br/>\n"
+"                        Thank you for your order ${object.internal_reference}.\n"
+"                        <br/><br/>\n"
+"                        We hereby confirm that we have received your order correctly.\n"
+"                        We will confirm the order with the delivery-time to you as soon as possible.\n"
+"                        Our reference number for your order is: “<strong>${object.name}</strong>”\n"
+"                        <br/><br/>\n"
+"                        Should you need any further information, please do not hesitate to contact me.\n"
+"                    </p>\n"
+"                </div>\n"
+"            "
+msgstr ""
+
+#. module: dws_gascontrol
+#: model:mail.template,body_html:dws_gascontrol.order_received_informal
+msgid ""
+"<div style=\"margin: 0px; padding: 0px;\">\n"
+"                    <p style=\"margin: 0px; padding: 0px; font-size: 13px;\">\n"
+"                        Confirmation of receipt for order ${object.internal_reference}\n"
+"                        <br/><br/>\n"
+"                        Dear {object.partner_id.name},\n"
+"                        <br/><br/>\n"
+"                        Thank you for your order ${object.internal_reference}.\n"
+"                        <br/><br/>\n"
+"                        We hereby confirm that we have received your order correctly.\n"
+"                        We will confirm the order with the delivery-time to you as soon as possible.\n"
+"                        Our reference number for your order is: “<strong>${object.name}</strong>”\n"
+"                        <br/><br/>\n"
+"                        Should you need any further information, please do not hesitate to contact us.\n"
+"                    </p>\n"
+"                </div>\n"
+"            "
+msgstr ""
+
+#. module: dws_gascontrol
+#: model:mail.template,body_html:dws_gascontrol.mail_template_sale_confirmation_formal
+msgid ""
+"<div style=\"margin: 0px; padding: 0px;\">\n"
+"    <p style=\"margin: 0px; padding: 0px; font-size: 12px;\">\n"
+"        % set transaction = object.get_portal_last_transaction()\n"
+"\n"
+"        % if object.state == 'sale' or (transaction and transaction.state in ('done', 'authorized')) :\n"
+"            <!-- custom -->\n"
+"<!--            no surname-->\n"
+"            Order confirmation <strong>${object.name}</strong> / Your reference: ${object.internal_reference}\n"
+"            <br/><br/>\n"
+"            Dear Sir / Madam ${object.partner_id.name},\n"
+"            <br/><br/>\n"
+"            Please find enclosed our order confirmation for your order ${object.internal_reference}.\n"
+"            Our reference number for this order is: <strong>${object.name}</strong>.\n"
+"            <br/><br/>\n"
+"            Please check this order confirmation and report any omissions to us immediately.\n"
+"            <br/><br/>\n"
+"            Should you need any further information, please do not hesitate to contact me.\n"
+"            <!-- end custom -->\n"
+"\n"
+"        % elif transaction and transaction.state == 'pending' :\n"
+"            Dear ${object.partner_id.name},\n"
+"            <br/><br/>\n"
+"            Your order <strong>${object.name}</strong> amounting in <strong>${format_amount(object.amount_total, object.currency_id)}</strong>\n"
+"            is pending. It will be confirmed when the payment is received.\n"
+"            % if object.reference:\n"
+"                Your payment reference is <strong>${object.reference}</strong>.\n"
+"            % endif\n"
+"        % endif\n"
+"\n"
+"        % if object.website_id:\n"
+"            <table width=\"100%\" style=\"color: #454748; font-size: 12px; border-collapse: collapse;\">\n"
+"                <tr style=\"border-bottom: 2px solid #dee2e6;\">\n"
+"                    <td width=\"18%\"><strong>Products</strong></td>\n"
+"                    <td/>\n"
+"                    <td><strong>Quantity</strong></td>\n"
+"                    <td width=\"10%\" align=\"center\"><strong>Price</strong></td>\n"
+"                </tr>\n"
+"                % for line in object.order_line:\n"
+"                    % if not line.is_delivery:\n"
+"                        <tr style=\"${loop.cycle('background-color: #f2f2f2', 'background-color: #ffffff')}\">\n"
+"                            % if line.display_type == 'line_section':\n"
+"                                <td colspan=\"4\"><strong>${line.name}</strong></td>\n"
+"                            % elif line.display_type == 'line_note':\n"
+"                                <td colspan=\"4\"><i>${line.name}</i></td>\n"
+"                            % else:\n"
+"                                <td style=\"width: 150px;\">\n"
+"                                    <img src=\"/web/image/product.product/${line.product_id.id}/image_128\" style=\"width: 64px; height: 64px; object-fit: contain;\" alt=\"Product image\"/>\n"
+"                                </td>\n"
+"                                <td align=\"left\">${line.product_id.name}</td>\n"
+"                                <td>${line.product_uom_qty}</td>\n"
+"                                % if object.user_id.has_group('account.group_show_line_subtotals_tax_excluded'):\n"
+"                                    <td align=\"right\">${format_amount(line.price_reduce_taxexcl, object.currency_id)}</td>\n"
+"                                % endif\n"
+"                                % if object.user_id.has_group('account.group_show_line_subtotals_tax_included'):\n"
+"                                    <td align=\"right\">${format_amount(line.price_reduce_taxinc, object.currency_id)}</td>\n"
+"                                % endif\n"
+"                            % endif\n"
+"                        </tr>\n"
+"                    % endif\n"
+"                % endfor\n"
+"            </table>\n"
+"            <table width=\"40%\" style=\"color: #454748; font-size: 12px; border-spacing: 0px 4px;\" align=\"right\">\n"
+"                % if object.carrier_id:\n"
+"                    <tr>\n"
+"                        <td style=\"border-top: 1px solid #dee2e6;\" align=\"right\"><strong>Delivery:</strong></td>\n"
+"                        <td style=\"border-top: 1px solid #dee2e6;\" align=\"right\">${format_amount(object.amount_delivery, object.currency_id)}</td>\n"
+"                    </tr>\n"
+"                    <tr>\n"
+"                        <td width=\"30%\" align=\"right\"><strong>SubTotal:</strong></td>\n"
+"                        <td align=\"right\">${format_amount(object.amount_untaxed, object.currency_id)}</td>\n"
+"                    </tr>\n"
+"                % else:\n"
+"                    <tr>\n"
+"                        <td style=\"border-top: 1px solid #dee2e6;\" width=\"30%\" align=\"right\"><strong>SubTotal:</strong></td>\n"
+"                        <td style=\"border-top: 1px solid #dee2e6;\" align=\"right\">${format_amount(object.amount_untaxed, object.currency_id)}</td>\n"
+"                    </tr>\n"
+"                % endif\n"
+"                <tr>\n"
+"                    <td align=\"right\"><strong>Taxes:</strong></td>\n"
+"                    <td align=\"right\">${format_amount(object.amount_tax, object.currency_id)}</td>\n"
+"                </tr>\n"
+"                <tr>\n"
+"                    <td style=\"border-top: 1px solid #dee2e6;\" align=\"right\"><strong>Total:</strong></td>\n"
+"                    <td style=\"border-top: 1px solid #dee2e6;\" align=\"right\">${format_amount(object.amount_total, object.currency_id)}</td>\n"
+"                </tr>\n"
+"            </table>\n"
+"            <br/>\n"
+"            <table width=\"100%\" style=\"color: #454748; font-size: 12px;\">\n"
+"                % if object.partner_invoice_id:\n"
+"                    <tr>\n"
+"                        <td style=\"padding-top: 10px;\">\n"
+"                            <strong>Bill to:</strong>\n"
+"                            ${object.partner_invoice_id.street or ''}\n"
+"                            ${object.partner_invoice_id.city or ''}\n"
+"                            ${object.partner_invoice_id.state_id.name or ''}\n"
+"                            ${object.partner_invoice_id.zip or ''}\n"
+"                            ${object.partner_invoice_id.country_id.name or ''}\n"
+"                        </td>\n"
+"                    </tr>\n"
+"                    <tr>\n"
+"                        <td>\n"
+"                            <strong>Payment Method:</strong>\n"
+"                            % if transaction.payment_token_id:\n"
+"                                ${transaction.payment_token_id.name}\n"
+"                            % else:\n"
+"                                ${transaction.acquirer_id.name}\n"
+"                            % endif\n"
+"                             (${format_amount(transaction.amount, object.currency_id)})\n"
+"                        </td>\n"
+"                    </tr>\n"
+"                % endif\n"
+"                % if object.partner_shipping_id and not object.only_services:\n"
+"                    <tr>\n"
+"                        <td>\n"
+"                            <br/>\n"
+"                            <strong>Ship to:</strong>\n"
+"                            ${object.partner_shipping_id.street or ''}\n"
+"                            ${object.partner_shipping_id.city or ''}\n"
+"                            ${object.partner_shipping_id.state_id.name or ''}\n"
+"                            ${object.partner_shipping_id.zip or ''}\n"
+"                            ${object.partner_shipping_id.country_id.name or ''}\n"
+"                        </td>\n"
+"                    </tr>\n"
+"                    % if object.carrier_id:\n"
+"                        <tr>\n"
+"                            <td>\n"
+"                                <strong>Shipping Method:</strong>\n"
+"                                ${object.carrier_id.name}\n"
+"                                % if object.carrier_id.fixed_price == 0.0:\n"
+"                                    (Free)\n"
+"                                % else:\n"
+"                                    (${format_amount(object.carrier_id.fixed_price, object.currency_id)})\n"
+"                                % endif\n"
+"                            </td>\n"
+"                        </tr>\n"
+"                    % endif\n"
+"                % endif\n"
+"            </table>\n"
+"        % endif\n"
+"    </p>\n"
+"</div>\n"
+"            "
+msgstr ""
+
+#. module: dws_gascontrol
+#: model:mail.template,body_html:dws_gascontrol.email_template_edi_sale_formal
+msgid ""
+"<div style=\"margin: 0px; padding: 0px;\">\n"
+"    <p style=\"margin: 0px; padding: 0px; font-size: 13px;\">\n"
+"        % set doc_name = 'quotation' if object.state in ('draft', 'sent') else 'order'\n"
+"<!--                        no surname available-->\n"
+"        Dear Sir / Madam ${object.partner_id.name},\n"
+"        <br/><br/>\n"
+"        % if ctx.get('proforma'):\n"
+"            Your Pro forma invoice for ${doc_name} <strong>${object.name}</strong>\n"
+"            % if object.origin:\n"
+"                (with reference: ${object.origin} )\n"
+"            % endif\n"
+"            amounting in <strong>${format_amount(object.amount_total, object.pricelist_id.currency_id)}</strong> is available.\n"
+"        % else:\n"
+"            Thank you for your request.\n"
+"            <br/><br/>\n"
+"            Please find enclosed our quotation for your request: ${object.internal_reference}.\n"
+"            Our ${doc_name} number is: “<strong>${object.name}</strong>”.\n"
+"\n"
+"            We hope that we made an appropriate offer for you. Please do not hesitate to contact me should you have any further questions.\n"
+"\n"
+"            Product information and manuals of the offered items can be downloaded by using the links in the quotation.\n"
+"\n"
+"        You can also take a look at our <a href=\"https://www.gascontrol.nl\">website</a>.\n"
+"        % endif\n"
+"    </p>\n"
+"</div>\n"
+"            "
+msgstr ""
+"<div style=\"margin: 0px; padding: 0px;\">\n"
+"                    <p style=\"margin: 0px; padding: 0px; font-size: 13px;\">\n"
+"                        % set doc_name = 'quotation' if object.state in ('draft', 'sent') else 'order'\n"
+"<!--                        no surname available-->\n"
+"                        Dear Sir / Madam ${object.partner_id.name},\n"
+"                        <br/><br/>\n"
+"                        % if ctx.get('proforma'):\n"
+"                            Your Pro forma invoice for ${doc_name} <strong>${object.name}</strong>\n"
+"                            % if object.origin:\n"
+"                                (with reference: ${object.origin} )\n"
+"                            % endif\n"
+"                            amounting in <strong>${format_amount(object.amount_total, object.pricelist_id.currency_id)}</strong> is available.\n"
+"                        % else:\n"
+"                            Thank you for your request.\n"
+"                            <br/><br/>\n"
+"                            Please find enclosed our quotation for your request: ${object.internal_reference}.\n"
+"                            Our ${doc_name} number is: “<strong>${object.name}</strong>”.\n"
+"\n"
+"                            We hope that we made an appropriate offer for you. Please do not hesitate to contact me should you have any further questions.\n"
+"\n"
+"                            Product information and manuals of the offered items can be downloaded by using the links in the quotation.\n"
+"\n"
+"                        You can also take a look at our <a href=\"https://www.gascontrol.nl\">website</a>.\n"
+"                        % endif\n"
+"                    </p>\n"
+"                </div>\n"
+"            "
+
+#. module: dws_gascontrol
+#: model:mail.template,body_html:dws_gascontrol.email_template_edi_invoice_formal
+msgid ""
+"<div style=\"margin: 0px; padding: 0px;\">\n"
+"    <p style=\"margin: 0px; padding: 0px; font-size: 13px;\">\n"
+"        Invoice <strong>${object.name}</strong> / Your reference: ??referentie aanmaken??\n"
+"        <br/><br/>\n"
+"        Dear Sir / Madam ${object.partner_id.name},\n"
+"        <br/><br/>\n"
+"        Please find enclosed our digital invoice for delivered goods and/or services.\n"
+"<!--        % if object.invoice_payment_state == 'paid':-->\n"
+"<!--            <br/><br/>-->\n"
+"<!--            This invoice is already paid.-->\n"
+"    </p>\n"
+"</div>\n"
+"            "
+msgstr ""
+
+#. module: dws_gascontrol
+#: model:mail.template,body_html:dws_gascontrol.email_template_edi_purchase_done_formal
+msgid ""
+"<div style=\"margin: 0px; padding: 0px;\">\n"
+"    <p style=\"margin: 0px; padding: 0px; font-size: 13px;\">\n"
+"        Purchase order ${object.name} / Your reference: ${object.internal_reference}.\n"
+"        <br/><br/>\n"
+"<!--        no surname-->\n"
+"        Dear Sir / Madam ${object.partner_id.name},\n"
+"        <br/><br/>\n"
+"        Please find enclosed our purchase order ${object.internal_reference}.\n"
+"        <br/><br/>\n"
+"        Please send us your order confirmation with price and delivery time as soon as possible.\n"
+"    </p>\n"
+"</div>\n"
+"            "
+msgstr ""
+
+#. module: dws_gascontrol
+#: model:ir.model,name:dws_gascontrol.model_res_partner
+msgid "Contact"
+msgstr ""
+
+#. module: dws_gascontrol
+#: model:ir.model.fields,field_description:dws_gascontrol.field_res_partner__extra
+#: model:ir.model.fields,field_description:dws_gascontrol.field_res_users__extra
+msgid "Extra"
+msgstr ""
+
+#. module: dws_gascontrol
+#: model:ir.model.fields,field_description:dws_gascontrol.field_sale_order__internal_reference
+msgid "Internal Reference"
+msgstr "Interne referentie"
+
+#. module: dws_gascontrol
+#: model:mail.template,report_name:dws_gascontrol.email_template_edi_invoice_formal
+msgid ""
+"Invoice_${(object.name or '').replace('/','_')}${object.state == 'draft' and"
+" '_draft' or ''}"
+msgstr ""
+
+#. module: dws_gascontrol
+#: model:mail.template,report_name:dws_gascontrol.email_template_edi_purchase_done_formal
+msgid "PO_${(object.name or '').replace('/','_')}"
+msgstr ""
+
+
+#. module: dws_gascontrol
+#: model:ir.model,name:dws_gascontrol.model_product_template
+msgid "Product Template"
+msgstr "Productsjabloon"
+
+#. module: dws_gascontrol
+#: model:ir.model,name:dws_gascontrol.model_sale_order
+msgid "Sales Order"
+msgstr "Verkooporder"
+
+#. module: dws_gascontrol
+#: model:ir.model.fields,field_description:dws_gascontrol.field_product_product__url
+#: model:ir.model.fields,field_description:dws_gascontrol.field_product_template__url
+msgid "Url"
+msgstr ""
+
+#. module: dws_gascontrol
+#: model_terms:ir.ui.view,arch_db:dws_gascontrol.sale_report_invoice_document_inherit_sale
+#: model_terms:ir.ui.view,arch_db:dws_gascontrol.sale_report_saleorder_document
+msgid "<strong>Relation:</strong>"
+msgstr "<strong>Relatie:</strong>"
+
+#. module: dws_gascontrol
+#: model_terms:ir.ui.view,arch_db:dws_gascontrol.purchase_report_purchaseorder_document
+#: model_terms:ir.ui.view,arch_db:dws_gascontrol.sale_report_saleorder_document
+msgid "<strong>Delivery Date:</strong>"
+msgstr "<strong>Leverdatum:</strong>"
+
+#. module: dws_gascontrol
+#: model_terms:ir.ui.view,arch_db:dws_gascontrol.sale_report_invoice_document_inherit_sale
+msgid "<strong>Invoice Address:</strong>"
+msgstr "<strong>Factuuradres</strong>"
+
+#. module: dws_gascontrol
+#: model_terms:ir.ui.view,arch_db:dws_gascontrol.sale_report_invoice_document_inherit_sale
+#: model_terms:ir.ui.view,arch_db:dws_gascontrol.sale_report_saleorder_document
+msgid "<strong>Shipping Address:</strong>"
+msgstr "<strong>Verzendadres:</strong>"
+
+#. module: dws_gascontrol
+#: model_terms:ir.ui.view,arch_db:dws_gascontrol.sale_report_saleorder_document
+msgid "Invoicing and Shipping Address:"
+msgstr "Factuur- en afleveradres:"
+
+#. module: purchase
+#: model_terms:ir.ui.view,arch_db:purchase.report_purchaseorder_document
+#: model_terms:ir.ui.view,arch_db:purchase.report_purchasequotation_document
+msgid "<strong>Qty</strong>"
+msgstr "<strong>Aantal</strong>"
+
+#. module: dws_gascontrol
+#: model_terms:ir.ui.view,arch_db:dws_gascontrol.sale_report_saleorder_document
+#: model_terms:ir.ui.view,arch_db:dws_gascontrol.custom_report_invoice_document
+msgid "Qty"
+msgstr "Aantal"
+
+#. module: dws_gascontrol
+#: model_terms:ir.ui.view,arch_db:dws_gascontrol.sale_report_saleorder_document
+msgid "<strong>Your Reference:</strong>"
+msgstr "<strong>Klantreferentie:</strong>"
+
+#. module: dws_gascontrol
+#: model_terms:ir.ui.view,arch_db:dws_gascontrol.sale_report_saleorder_document
+msgid "<strong>Order Date:</strong>"
+msgstr "<strong>Order datum:</strong>"
+
+#. module: dws_gascontrol
+#: model_terms:ir.ui.view,arch_db:dws_gascontrol.sale_report_saleorder_document
+msgid "<strong>Salesperson:</strong>"
+msgstr "<strong>Verkoper:</strong>"
+
+#. module: dws_gascontrol
+#: model_terms:ir.ui.view,arch_db:dws_gascontrol.sale_report_saleorder_document
+#: model_terms:ir.ui.view,arch_db:dws_gascontrol.custom_report_invoice_document
+msgid "<span>Description</span>"
+msgstr "<span>Omschrijving</span>"
+
+#. module: dws_gascontrol
+#: model_terms:ir.ui.view,arch_db:dws_gascontrol.sale_report_saleorder_document
+msgid "Total Delivered"
+msgstr "Aantal Geleverd"
+
+#. module: dws_gascontrol
+#: model_terms:ir.ui.view,arch_db:dws_gascontrol.sale_report_saleorder_document
+msgid "Unit Price"
+msgstr "Prijs"
+
+#. module: dws_gascontrol
+#: model_terms:ir.ui.view,arch_db:dws_gascontrol.custom_report_invoice_document
+#: model_terms:ir.ui.view,arch_db:dws_gascontrol.sale_report_saleorder_document
+msgid "<span>Discount</span>"
+msgstr "<span>Korting</span>"
+
+#. module: dws_gascontrol
+#: model_terms:ir.ui.view,arch_db:dws_gascontrol.custom_report_invoice_document
+#: model_terms:ir.ui.view,arch_db:dws_gascontrol.sale_report_saleorder_document
+msgid "<strong>Subtotal</strong>"
+msgstr "<strong>Subtotaal</strong>"
+
+#. module: purchase
+#: model_terms:ir.ui.view,arch_db:purchase.report_purchaseorder_document
+msgid "<strong>Purchase Representative:</strong>"
+msgstr "<strong>Inkoper:</strong>"
+
+#. module: dws_gascontrol
+#: model_terms:ir.ui.view,arch_db:dws_gascontrol.sale_report_saleorder_document
+msgid "<strong>Quotation Date:</strong>"
+msgstr "<strong>Offertedatum:</strong>"
+
+#. module: dws_gascontrol
+#: model_terms:ir.ui.view,arch_db:dws_gascontrol.sale_report_saleorder_document
+msgid "<strong>Expiration:</strong>"
+msgstr "<strong>Vervaldatum:</strong>"
+
+#. module: dws_gascontrol
+#: model_terms:ir.ui.view,arch_db:dws_gascontrol.report_delivery_document_internal
+#: model_terms:ir.ui.view,arch_db:dws_gascontrol.stock_report_delivery_document
+msgid "<strong>Customer Reference:</strong>"
+msgstr "<strong>Klantreferentie:</strong>"
+
+#. module: dws_gascontrol
+#: model_terms:ir.ui.view,arch_db:dws_gascontrol.web_external_layout_standard
+msgid "<strong>COC: </strong>"
+msgstr "<strong>K.v.K.: </strong>"
+
+#. module: dws_gascontrol
+#: model_terms:ir.ui.view,arch_db:dws_gascontrol.web_external_layout_standard
+msgid "<strong>Telephone: </strong>"
+msgstr "<strong>Telefoon: </strong>"
+
+#. module: dws_gascontrol
+#: model_terms:ir.ui.view,arch_db:dws_gascontrol.custom_report_invoice_document
+msgid "Attn.: Gascontrol Systems B.V."
+msgstr "T.n.v.: Gascontrol Systems B.V."
+
+#. module: dws_gascontrol
+#: model_terms:ir.ui.view,arch_db:dws_gascontrol.custom_report_invoice_document
+#: model_terms:ir.ui.view,arch_db:dws_gascontrol.sale_report_saleorder_document
+msgid "<span>Amount</span>"
+msgstr "<span>Bedrag</span>"
+
+#. module: dws_gascontrol
+#: model_terms:ir.ui.view,arch_db:dws_gascontrol.custom_report_invoice_document
+#: model_terms:ir.ui.view,arch_db:dws_gascontrol.sale_report_saleorder_document
+msgid "<span>Taxes</span>"
+msgstr "<span>BTW </span>"
+
+#. module: dws_gascontrol
+#: model_terms:ir.ui.view,arch_db:dws_gascontrol.custom_report_invoice_document
+msgid "Paid on"
+msgstr "Voldaan op"
+
+#. module: dws_gascontrol
+#: model_terms:ir.ui.view,arch_db:dws_gascontrol.custom_report_invoice_document
+msgid "<strong>Amount Due</strong>"
+msgstr "<strong>Verschuldigd bedrag</strong>"
+
+#. module: dws_gascontrol
+#: model_terms:ir.ui.view,arch_db:dws_gascontrol.sale_report_saleorder_document
+msgid "<span>Options</span>"
+msgstr "<span>Opties</span>"
+
+#. module: dws_gascontrol
+#. model_terms:ir.ui.view,arch_db:dws_gascontrol.sale_report_saleorder_document
+#: model_terms:ir.ui.view,arch_db:dws_gascontrol.custom_report_invoice_document
+#: model_terms:ir.ui.view,arch_db:account.report_invoice_document
+msgid "<strong>Source:</strong>"
+msgstr "<strong>Order:</strong>"
+
+#. module: dws_gascontrol
+#: model:ir.model.fields,field_description:dws_gascontrol.field_stock_picking__sale_responsible
+msgid "Sale Responsible"
+msgstr "Verantwoordelijke verkoop"
+
+#. module: dws_gascontrol
+#: model_terms:ir.ui.view,arch_db:dws_gascontrol.mail_mail_bounce_catchall
+msgid ""
+"cannot be processed. This address\n"
+"    is used to collect replies and should not be used to directly contact"
+msgstr ""
+"kan niet worden verwerkt. Dit adres\n"
+"wordt gebruikt om antwoorden te verzamelen en mag niet worden gebruikt om rechtstreeks contact op te nemen"
+
+#. module: dws_gascontrol
+#: model_terms:ir.ui.view,arch_db:dws_gascontrol.mail_mail_bounce_catchall
+msgid "Hello"
+msgstr "Hallo"
+
+#. module: dws_gascontrol
+#: model_terms:ir.ui.view,arch_db:dws_gascontrol.mail_mail_bounce_catchall
+msgid "Please contact us instead using"
+msgstr "U dient ons in de plaats te contacteren door middel van"
+
+#. module: dws_gascontrol
+#: model_terms:ir.ui.view,arch_db:dws_gascontrol.mail_mail_bounce_catchall
+msgid "Regards,"
+msgstr "Met vriendelijke groet,"
+
+#. module: dws_gascontrol
+#: model_terms:ir.ui.view,arch_db:dws_gascontrol.mail_mail_bounce_catchall
+msgid "The email sent to"
+msgstr "De e-mail verzonden naar"
+
+#. module: dws_gascontrol
+#: model_terms:ir.ui.view,arch_db:dws_gascontrol.mail_mail_bounce_catchall
+msgid "The"
+msgstr ""
+
+#. module: dws_gascontrol
+#: model_terms:ir.ui.view,arch_db:dws_gascontrol.mail_mail_bounce_catchall
+msgid "team."
+msgstr ""
+
+#. module: dws_gascontrol
+#: model_terms:ir.ui.view,arch_db:dws_gascontrol.custom_report_invoice_document
+#: model_terms:ir.ui.view,arch_db:dws_gascontrol.sale_report_saleorder_document
+msgid "<strong>Total (TAX included) </strong>"
+msgstr "<strong>Totaal incl. BTW </strong>"
+
+#. module: dws_gascontrol_xml_invoicing
+#: code: addons/dws_gascontrol_xml_invoicing/models/mail_template.py:0
+#, python-format
+msgid "Invoice_"
+msgstr "Factuur_"

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- product varianten -->
+	<template id="product_barcode_labels">
+		<t t-call="web.basic_layout">
+			<t t-foreach="docs" t-as="doc">
+				<t t-foreach="range(doc.qty)" t-as='l'>
+					<div class="page">
+						<div class="col-4" style="padding:0;">
+							<table style="border-bottom: 0px solid white !important;width: 3in;">
+                                <t t-set="barcode_info" t-value="get_barcode_details_info"/>
+                                <t t-if="doc.product_id.barcode">
+                                    <tr>
+                                        <th style="text-align: left; font-size: 14px;">                                    
+                                            <strong t-field="doc.product_id.default_code"/>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align: left; font-size : 14px;">
+                                            <span t-field="doc.product_id.name"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align: left; font-size : 14px;">
+                                            <span t-field="doc.product_id.product_template_attribute_value_ids"/>
+                                        </td>
+                                    </tr>
+                                    <!-- <tr>
+                                        <td style="text-align: left; font-size : 15px;">
+                                            <span>Aantal: </span>
+                                        </td>
+                                    </tr> -->
+                                    <tr>
+                                        <td style="text-align: center; vertical-align: middle;" class="col-5">
+                                            <img alt="Barcode" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % (barcode_info['barcode_type'], doc.product_id.barcode, 600, 100)" 
+                                            t-attf-style="width: #{barcode_info['barcode_width']}px;height: #{barcode_info['barcode_height']}px;"
+                                                   />
+                                            <br />
+                                            <span style="font-size : 14px;" t-field="doc.product_id.barcode"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                                <t t-else="">
+                                    <tr>
+                                        <th style="text-align: left; font-size: 16px;">                                    
+                                            <strong t-field="doc.product_id.default_code"/>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align: left; font-size : 16px;">
+                                            <span t-field="doc.product_id.name"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align: left; font-size : 16px;">
+                                            <span t-field="doc.product_id.product_template_attribute_value_ids"/>
+                                        </td>
+                                    </tr>
+                                    <!-- <tr>
+                                        <td style="text-align: left; font-size : 18px;">
+                                            <span>Aantal: </span>
+                                        </td>
+                                    </tr> -->
+                                </t>
+                            </table>
+						</div>
+					</div>
+					<div style="page-break-before:always;"/>
+				</t>
+				<div style="page-break-before:always;"/>
+			</t>
+		</t>
+	</template>
+</odoo>

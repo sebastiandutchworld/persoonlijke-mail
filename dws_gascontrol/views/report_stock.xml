@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+
+    <template id="sale_stock_report_delivery_document_inherit_sale_stock"
+              inherit_id="sale_stock.report_delivery_document_inherit_sale_stock">
+      <xpath expr="//div[@class='row justify-content-end']" position="replace">
+      </xpath>
+    </template>
+
+    <template id="stock_report_delivery_document" inherit_id="stock.report_delivery_document">
+      <xpath expr="//span[@t-field='o.name']" position="before">
+        <span>PAKBON </span>
+      </xpath>
+      <xpath expr="//div[@class='row mt32 mb32']" position="inside">
+        <div class="row justify-content-end" t-if="o.sudo().sale_id.client_order_ref">
+          <div class="col-auto">
+            <strong>Customer Reference:</strong>
+            <p t-field="o.sudo().sale_id.client_order_ref"/>
+          </div>
+        </div>
+      </xpath>
+      <xpath expr="//p[@t-field='o.date_done']" position="attributes">
+          <attribute name="t-options">{"widget": "date"}</attribute>
+      </xpath>
+      <xpath expr="//p[@t-field='o.scheduled_date']" position="attributes">
+          <attribute name="t-options">{"widget": "date"}</attribute>
+      </xpath>
+    </template>
+
+  </data>
+</odoo>

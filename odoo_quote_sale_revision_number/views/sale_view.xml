@@ -1,0 +1,30 @@
+<odoo>
+    <data>
+    
+        <record model="ir.ui.view" id="odoo_sale_revised_number_form_view_custom">
+            <field name="name">sale.form.inherit</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//button[@id='action_confirm']" position="before">
+                     <button name="custom_create_revision" type="object" string="Create Revision" states="draft,sent" class="btn-primary" groups="sales_team.group_sale_salesman"/>
+                </xpath>
+                <xpath expr="//page[2]" position="after">
+                    <page string="Quotation Revision History">
+                        <field name="revised_custom_ids" nolabel="1" readonly="True">
+                            <tree editable='bottom'>
+                                <field name="revised_number"/>
+                                <field name="revised_line_ids"/>
+                            </tree>
+                        </field>
+                    </page>
+                </xpath>
+                <xpath expr="//div[@name='button_box']" position="inside">
+                    <button class="oe_stat_button" type="object" string="Show Revised History" name="show_revisedline" icon="fa-tasks">
+                        </button>
+                </xpath>
+            </field>
+        </record>
+        
+    </data>
+</odoo>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="sale_view_quotation_tree_with_onboarding_custom" model="ir.ui.view">
+      <field name="name">sale.view.quotation.tree.with.onboarding.custom</field>
+      <field name="model">sale.order</field>
+      <field name="inherit_id" ref="sale.view_quotation_tree_with_onboarding" />
+      <field name="arch" type="xml">
+          <xpath expr="//field[@name='invoice_status']" position="before">
+              <field name="all_to_invoice" optional="hide"/>
+          </xpath>
+      </field>
+  </record>
+  <record id="sale_view_order_tree_custom" model="ir.ui.view">
+    <field name="name">sale.view.order.tree.custom</field>
+    <field name="model">sale.order</field>
+    <field name="inherit_id" ref="sale.view_order_tree"/>
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='invoice_status']" position="before">
+          <field name="all_to_invoice" optional="show"/>
+      </xpath>
+    </field>
+  </record>
+  <record id="action_orders_to_invoice_all" model="ir.actions.act_window">
+    <field name="name">Orders all to Invoice</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">sale.order</field>
+    <field name="view_mode">tree,form,calendar,graph,pivot,kanban,activity</field>
+    <field name="context">{'create': False}</field>
+    <field name="domain">[('invoice_status','=','to invoice'), ('all_to_invoice', '=', True)]</field>
+    <field name="search_view_id" ref="sale.view_sales_order_filter"/>
+    <field name="help" type="html">
+      <p class="o_view_nocontent_smiling_face">
+        No orders all to invoice found
+      </p><p>
+        You can select all orders and invoice them in batch,<br/>
+        or check every order and invoice them one by one.
+      </p>
+    </field>
+  </record>
+  <menuitem id="menu_sale_order_invoice_all"
+      action="action_orders_to_invoice_all"
+      parent="sale.menu_sale_invoicing"
+      sequence="4"/>
+</odoo>

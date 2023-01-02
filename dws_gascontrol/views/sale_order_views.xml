@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="sale_view_order_form" model="ir.ui.view">
+        <field name="name">sale.view.order.form</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='client_order_ref']" position="after">
+                <field name="internal_reference"/>
+            </xpath>
+            <xpath expr="//group[@name='sale_reporting']" position="attributes">
+                <attribute name="groups"/>
+            </xpath>
+            <xpath expr="(//field[@name='date_order'])[1]" position="attributes">
+                <attribute name="groups"/>
+            </xpath>
+            <xpath expr="(//div[@class='o_td_label'])[1]" position="attributes">
+                <attribute name="groups"/>
+            </xpath>
+        </field>
+    </record>
+	<record id="dws_view_sales_order_filter" model="ir.ui.view">
+            <field name="name">dws.sale.order.list.select</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_sales_order_filter" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='analytic_account_id']" position="after">
+                    <field name="client_order_ref"/>
+                    <field name="internal_reference"/>
+                </xpath>
+                <xpath expr="//field[@name='partner_id']" position="after">
+                    <field name="partner_id" string="Customer Contains" filter_domain="[('partner_id', 'ilike', self)]"/>
+                </xpath>
+            </field>
+    </record>
+    <record id="sale_view_quotation_tree_with_onboarding" model="ir.ui.view">
+        <field name="name">sale.view.quotation.tree.with.onboarding</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_quotation_tree_with_onboarding" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="client_order_ref"/>
+                <field name="internal_reference" optional="hide"/>
+            </xpath>
+        </field>
+    </record>
+    <record id="sale_view_order_tree" model="ir.ui.view">
+        <field name="name">sale.view.order.tree</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_tree" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="client_order_ref"/>
+                <field name="internal_reference"/>
+            </xpath>
+        </field>
+    </record>
+    <record id="sale_sale_view_inherit123" model="ir.ui.view">
+        <field name="name">sale.sale.view.inherit123</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale_crm.sale_view_inherit123"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='opportunity_id']" position="attributes">
+                <attribute name="groups"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

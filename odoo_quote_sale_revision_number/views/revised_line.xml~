@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+    
+        <record id="odoo_sale_order_line_revised_form_view" model="ir.ui.view">
+            <field name="name">saleorderline.revised.form.view</field>
+            <field name="model">saleorderline.revised</field>
+            <field name="arch" type="xml">
+                <form>
+                            <field name="product_id_rev"/>
+                            <field name="layout_category_id_rev"/>
+                            <field name="name_rev"/>
+                            <field name="qty_rev"/>
+                            <field name="uom_rev"/>
+                            <field name="price_rev"/>
+                            <field name="discount_rev"/>
+                            <field name="subtotal_rev"/>
+                            <field name="total_rev"/>
+                </form>
+            </field>
+        </record>
+        
+        <record id="odoo_sale_order_line_revised_tree_view" model="ir.ui.view">
+            <field name="name">saleorderline.revised.view.tree</field>
+            <field name="model">saleorderline.revised</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="total_rev"/>
+                </tree>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="action_sale_order_line_revised">
+            <field name="name">Questionaries</field>
+            <field name="res_model">saleorderline.revised</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_type">form</field>
+        </record>
+        
+        <menuitem id="menu_revised_line" name="Revised line" parent="sale.menu_sale_quotations" action="action_sale_order_line_revised"/>
+        
+           </data>
+        </odoo>

@@ -1,0 +1,39 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* dws_gascontrol_invoice_all
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0+e-20201104\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-02-03 11:45+0000\n"
+"PO-Revision-Date: 2021-02-03 11:45+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: dws_gascontrol_invoice_all
+#: model:ir.model.fields,field_description:dws_gascontrol_invoice_all.field_sale_order__all_to_invoice
+msgid "All To Invoice"
+msgstr ""
+
+#. module: dws_gascontrol_invoice_all
+#: model_terms:ir.actions.act_window,help:dws_gascontrol_invoice_all.action_orders_to_invoice_all
+msgid "No orders all to invoice found"
+msgstr ""
+
+#. module: dws_gascontrol_invoice_all
+#: model:ir.actions.act_window,name:dws_gascontrol_invoice_all.action_orders_to_invoice_all
+#: model:ir.ui.menu,name:dws_gascontrol_invoice_all.menu_sale_order_invoice_all
+msgid "Orders all to Invoice"
+msgstr ""
+
+#. module: dws_gascontrol_invoice_all
+#: model_terms:ir.actions.act_window,help:dws_gascontrol_invoice_all.action_orders_to_invoice_all
+msgid ""
+"You can select all orders and invoice them in batch,<br>\n"
+"        or check every order and invoice them one by one."
+msgstr ""

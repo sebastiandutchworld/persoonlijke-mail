@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="assets_backend" name="message_delete_assets" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+        	<link type="text/css" rel='stylesheet' href='/message_delete/static/src/css/message_delete.css'/>
+            <script type="text/javascript" src="/message_delete/static/src/components/message/message.js"></script>
+            <script type="text/javascript" src="/message_delete/static/src/models/message/message.js"></script>
+            <script type="text/javascript" src="/message_delete/static/src/models/messaging_initializer/messaging_initializer.js"></script>
+        </xpath>
+    </template>
+
+</odoo>

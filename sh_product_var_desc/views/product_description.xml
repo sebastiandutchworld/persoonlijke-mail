@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.ui.view" id="sh_product_var_desc_inherit_form_view">
+        <field name="name">sh.product.var.desc.inherit.form.view</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_variant_easy_edit_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='weight']" position="after">
+                <group></group>
+                <group>
+                    <field name="description_purchase" />
+                    <field name="description_sale" />
+                    <field name="description_picking" />
+                    <field name="description_pickingout" />
+                    <field name="description_pickingin" />
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

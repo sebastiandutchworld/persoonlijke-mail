@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <template id="purchase_report_purchasequotation_document" inherit_id="purchase.report_purchasequotation_document">
+      <xpath expr="(//table/thead/tr/th)[2]" position="replace"/>
+      <xpath expr="(//table/tbody/t/tr/t/td)[2]" position="replace"/>
+<!--      <xpath expr="//td[@id='product']" position="replace">-->
+<!--        <td>-->
+<!--          <t>[<span t-field="order_line.supplier_code"/>] <span t-field="order_line.supplier_name"/></t>-->
+<!--        </td>-->
+<!--      </xpath>-->
+      <xpath expr="(//table)[1]" position="before">
+        <div id="informations" class="row mt32 mb32">
+          <div t-if="o.user_id" class="col-3 bm-2">
+              <strong>Purchase Representative:</strong>
+              <p t-field="o.user_id" class="m-0"/>
+          </div>
+        </div>
+      </xpath>
+    </template>
+    <template id="purchase_stock_report_purchasequotation_document" inherit_id="purchase_stock.report_purchasequotation_document">
+      <xpath expr="//div[@t-if='o.picking_type_id and o.picking_type_id.warehouse_id']" position="replace">
+        <div t-if="o.picking_type_id and o.picking_type_id.warehouse_id">
+          <span t-field="o.picking_type_id.warehouse_id.name"/>
+          <div t-field="o.picking_type_id.warehouse_id.partner_id" t-options='{"widget": "contact", "fields": ["address"], "no_marker": True,}'/>
+        </div>
+        <p t-if="o.picking_type_id.warehouse_id.partner_id.vat"><t t-esc="o.company_id.country_id.vat_label or 'Tax ID'"/>: <span t-field="o.picking_type_id.warehouse_id.partner_id.vat"/></p>
+        <br/>
+      </xpath>
+    </template>
+  </data>
+</odoo>

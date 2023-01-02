@@ -1,0 +1,83 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sh_product_var_desc
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-10-19 07:46+0000\n"
+"PO-Revision-Date: 2020-10-19 07:46+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: sh_product_var_desc
+#: model:ir.model.fields,help:sh_product_var_desc.field_product_product__description_sale
+msgid ""
+"A description of the Product that you want to communicate to your customers."
+" This description will be copied to every Sales Order, Delivery Order and "
+"Customer Invoice/Credit Note"
+msgstr ""
+"Una descripción del Producto que desea comunicar a sus clientes".
+"Esta descripción se copiará en todos los pedidos de venta, pedidos de entrega y"
+"Factura de cliente / Nota de crédito"
+
+#. module: sh_product_var_desc
+#: model:ir.model.fields,help:sh_product_var_desc.field_product_product__description_purchase
+msgid ""
+"A description of the Product that you want to communicate to your vendors. "
+"This description will be copied to every Purchase Order, Receipt and Vendor "
+"Bill/Credit Note."
+msgstr ""
+"Una descripción del Producto que desea comunicar a sus proveedores".
+"Esta descripción se copiará en cada orden de compra, recibo y proveedor"
+"Factura / Nota de crédito".
+
+#. module: sh_product_var_desc
+#: model:ir.model.fields,field_description:sh_product_var_desc.field_product_product__description_pickingout
+msgid "Description on Delivery Orders"
+msgstr "Descripción en pedidos de entrega"
+
+#. module: sh_product_var_desc
+#: model:ir.model.fields,field_description:sh_product_var_desc.field_product_product__description_picking
+msgid "Description on Picking"
+msgstr "Descripción de Picking"
+
+#. module: sh_product_var_desc
+#: model:ir.model.fields,field_description:sh_product_var_desc.field_product_product__description_pickingin
+msgid "Description on Receptions"
+msgstr "Descripción sobre recepciones"
+
+#. module: sh_product_var_desc
+#: model:ir.model.fields,field_description:sh_product_var_desc.field_product_product__display_name
+msgid "Display Name"
+msgstr "Nombre para mostrar"
+
+#. module: sh_product_var_desc
+#: model:ir.model.fields,field_description:sh_product_var_desc.field_product_product__id
+msgid "ID"
+msgstr "CARNÉ DE IDENTIDAD"
+
+#. module: sh_product_var_desc
+#: model:ir.model.fields,field_description:sh_product_var_desc.field_product_product____last_update
+msgid "Last Modified on"
+msgstr "Última modificación el"
+
+#. module: sh_product_var_desc
+#: model:ir.model,name:sh_product_var_desc.model_product_product
+msgid "Product"
+msgstr "Producto"
+
+#. module: sh_product_var_desc
+#: model:ir.model.fields,field_description:sh_product_var_desc.field_product_product__description_purchase
+msgid "Purchase Description"
+msgstr "Descripción de compra"
+
+#. module: sh_product_var_desc
+#: model:ir.model.fields,field_description:sh_product_var_desc.field_product_product__description_sale
+msgid "Sale Description"
+msgstr "Descripción de venta"

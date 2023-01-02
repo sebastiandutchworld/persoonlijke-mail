@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="sale_order_to_purchase_order_view_form" model="ir.ui.view">
+            <field name="name">sale.order.to.purchase.order.form</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//form//header//button[@name='action_quotation_send']" position="after">
+                    <button name="%(purchase_order_wizard_action)d" class="btn-primary" type="action"
+                            string="Create PO"/>
+                </xpath>
+                <xpath expr="//button[@name='action_view_invoice']" position="before">
+                    <button type="object" name="action_view_custom_purchase" class="oe_stat_button" icon="fa-file"
+                            attrs="{'invisible': [('custom_purchase_count','=', 0)]}">
+                        <field name="custom_purchase_count" widget="statinfo" string="Purchase"/>
+                    </button>
+                </xpath>
+            </field>
+        </record>
+        <record id="purchase_order_sale_ord_view_form" model="ir.ui.view">
+            <field name="name">purchase.order.sale.ord.form</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='date_order']" position="before">
+                    <field name="sale_ord_id" string="Sale Order"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

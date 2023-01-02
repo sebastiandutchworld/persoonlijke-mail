@@ -1,0 +1,83 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sh_product_var_desc
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-10-19 07:46+0000\n"
+"PO-Revision-Date: 2020-10-19 07:46+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: sh_product_var_desc
+#: model:ir.model.fields,help:sh_product_var_desc.field_product_product__description_sale
+msgid ""
+"A description of the Product that you want to communicate to your customers."
+" This description will be copied to every Sales Order, Delivery Order and "
+"Customer Invoice/Credit Note"
+msgstr ""
+"وصف للمنتج الذي تريد توصيله إلى عملائك."
+"سيتم نسخ هذا الوصف إلى كل طلب مبيعات وأمر تسليم و"
+"فاتورة العميل / إشعار دائن"
+
+#. module: sh_product_var_desc
+#: model:ir.model.fields,help:sh_product_var_desc.field_product_product__description_purchase
+msgid ""
+"A description of the Product that you want to communicate to your vendors. "
+"This description will be copied to every Purchase Order, Receipt and Vendor "
+"Bill/Credit Note."
+msgstr ""
+"وصف المنتج الذي تريد توصيله إلى البائعين."
+"سيتم نسخ هذا الوصف إلى كل طلب شراء وإيصال ومورد"
+"فاتورة / سند دائن".
+
+#. module: sh_product_var_desc
+#: model:ir.model.fields,field_description:sh_product_var_desc.field_product_product__description_pickingout
+msgid "Description on Delivery Orders"
+msgstr "وصف أوامر التسليم"
+
+#. module: sh_product_var_desc
+#: model:ir.model.fields,field_description:sh_product_var_desc.field_product_product__description_picking
+msgid "Description on Picking"
+msgstr "الوصف عند الانتقاء"
+
+#. module: sh_product_var_desc
+#: model:ir.model.fields,field_description:sh_product_var_desc.field_product_product__description_pickingin
+msgid "Description on Receptions"
+msgstr "وصف الاستقبالات"
+
+#. module: sh_product_var_desc
+#: model:ir.model.fields,field_description:sh_product_var_desc.field_product_product__display_name
+msgid "Display Name"
+msgstr "اسم العرض"
+
+#. module: sh_product_var_desc
+#: model:ir.model.fields,field_description:sh_product_var_desc.field_product_product__id
+msgid "ID"
+msgstr "هوية شخصية"
+
+#. module: sh_product_var_desc
+#: model:ir.model.fields,field_description:sh_product_var_desc.field_product_product____last_update
+msgid "Last Modified on"
+msgstr "تاريخ آخر تعديل"
+
+#. module: sh_product_var_desc
+#: model:ir.model,name:sh_product_var_desc.model_product_product
+msgid "Product"
+msgstr "المنتج"
+
+#. module: sh_product_var_desc
+#: model:ir.model.fields,field_description:sh_product_var_desc.field_product_product__description_purchase
+msgid "Purchase Description"
+msgstr "وصف الشراء"
+
+#. module: sh_product_var_desc
+#: model:ir.model.fields,field_description:sh_product_var_desc.field_product_product__description_sale
+msgid "Sale Description"
+msgstr "وصف البيع"

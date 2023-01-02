@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="product_supplierinfo_form_view_inherited" model="ir.ui.view">
+        <field name="name">product.supplierinfo.form.view.inherited</field>
+        <field name="model">product.supplierinfo</field>
+        <field name="inherit_id" ref="product.product_supplierinfo_form_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='company_id']" position="after">
+                <!-- field to indicates if a products is archived -->
+                <field name="product_is_active" />                
+            </xpath>
+        </field>
+    </record>
+
+
+    <record id="product_supplierinfo_tree_view_inherited" model="ir.ui.view">
+        <field name="name">product.supplierinfo.tree.view.inherited</field>
+        <field name="model">product.supplierinfo</field>
+        <field name="inherit_id" ref="product.product_supplierinfo_tree_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='product_tmpl_id']" position="after">
+                <field name="product_is_active" />                
+            </xpath>
+        </field>        
+    </record>
+
+    <record id="product_supplierinfo_search_view_inherited" model="ir.ui.view">
+        <field name="name">product.supplierinfo.search.view.inherited</field>
+        <field name="model">product.supplierinfo</field>
+        <field name="inherit_id" ref= "product.product_supplierinfo_search_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='active']" position="after">
+                <filter string="Active_products" name="product_is_active" domain="[('product_is_active', '=', True)]" />           
+            </xpath>
+        </field>        
+    </record>
+
+	
+
+</odoo>

@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_purchaseorder_wiz,access_purchaseorder_wiz,model_purchaseorder_wiz,base.group_user,1,1,1,0
+access_purchase_wiz,access_purchase_wiz,model_purchase_wiz,base.group_user,1,1,1,0
