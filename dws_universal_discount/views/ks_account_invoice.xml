@@ -1,0 +1,43 @@
+<odoo>
+    <data>
+
+        <record id="ks_global_discount_invoice_view_form" model="ir.ui.view">
+            <field name="name">ks.global.discount.account.move.form</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//form/sheet/notebook/page[1]/group" position="after">
+                    <div class="ks_container">
+                        <field name="ks_enable_discount" invisible="1"/>
+                        <field name="ks_amount_discount" invisible="1"/>
+                        <label for="ks_global_discount_type" string="Order Discount Type:"
+                               attrs="{'invisible':['|','&amp;',('ks_enable_discount','!=',True),('ks_amount_discount','=',0),('type','=','in_invoice')]}"/>
+                        <field name="ks_global_discount_type" class="oe_inline"
+                               attrs="{'invisible':['|','&amp;',('ks_enable_discount','!=',True),('ks_amount_discount','=',0),('type','=','in_invoice')],'readonly':['|',('ks_enable_discount','!=',True),('state', 'in', ['posted', 'cancel'])]}"/>
+                    </div>
+                    <div class="ks_container">
+                        <label for="ks_global_discount_rate" string="Order Discount:"
+                               attrs="{'invisible':['|','&amp;',('ks_enable_discount','!=',True),('ks_amount_discount','=',0),('type','=','in_invoice')]}"/>
+                        <field name="ks_global_discount_rate" class="oe_inline"
+                               attrs="{'invisible':['|','&amp;',('ks_enable_discount','!=',True),('ks_amount_discount','=',0),('type','=','in_invoice')],'readonly':['|','|',('ks_enable_discount','!=',True),('state', 'in', ['posted', 'cancel']), ('ks_global_discount_type', 'in', [None, False])]}"/>
+                    </div>
+                </xpath>
+<!--                <xpath expr="//field[@name='amount_by_group']" position="after">-->
+<!--                    <field name="ks_amount_discount" attrs="{'invisible':[('ks_enable_discount','!=',True),('ks_amount_discount','=',0)]}" />-->
+<!--                </xpath>-->
+                <xpath expr="//field[@name='amount_untaxed']" position="before">
+                    <field name="discount_total"/>
+                </xpath>
+                <xpath expr="//field[@name='amount_untaxed']" position="after">
+                    <field name="ks_amount_discount" attrs="{'invisible':[('type','=','in_invoice')]}"/>
+<!--                    <field name="amount_tax"/>-->
+                </xpath>
+                <xpath expr="//field[@name='amount_by_group']" position="before">
+                    <field name="total_untaxed"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>
+

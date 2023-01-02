@@ -1,0 +1,184 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* dws_universal_discount
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0+e-20200106\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-04-30 13:15+0000\n"
+"PO-Revision-Date: 2020-04-30 13:15+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: dws_universal_discount
+#: model_terms:ir.ui.view,arch_db:dws_universal_discount.ks_res_config_settings_view_form
+msgid "<span class=\"o_form_label\">Accounts</span>"
+msgstr ""
+
+#. module: dws_universal_discount
+#: model_terms:ir.ui.view,arch_db:dws_universal_discount.ks_global_discount_invoice_report
+#: model_terms:ir.ui.view,arch_db:dws_universal_discount.ks_global_discount_purchase_report
+#: model_terms:ir.ui.view,arch_db:dws_universal_discount.ks_global_discount_sale_report
+msgid "<span>Order Discount </span>"
+msgstr "Projectkorting "
+
+#. module: dws_universal_discount
+#: model:ir.model.fields,field_description:dws_universal_discount.field_res_company__ks_enable_discount
+#: model:ir.model.fields,field_description:dws_universal_discount.field_res_config_settings__ks_enable_discount
+msgid "Activate Order Discount"
+msgstr ""
+
+#. module: dws_universal_discount
+#: model_terms:ir.ui.view,arch_db:dws_universal_discount.ks_res_config_settings_view_form
+msgid "Activate Order discount on all modules."
+msgstr ""
+
+#. module: dws_universal_discount
+#: model:ir.model.fields.selection,name:dws_universal_discount.selection__account_move__ks_global_discount_type__amount
+#: model:ir.model.fields.selection,name:dws_universal_discount.selection__purchase_order__ks_global_discount_type__amount
+#: model:ir.model.fields.selection,name:dws_universal_discount.selection__sale_order__ks_global_discount_type__amount
+msgid "Amount"
+msgstr ""
+
+#. module: dws_universal_discount
+#: model:ir.model,name:dws_universal_discount.model_res_company
+msgid "Companies"
+msgstr "Bedrijven"
+
+#. module: dws_universal_discount
+#: model:ir.model,name:dws_universal_discount.model_res_config_settings
+msgid "Config Settings"
+msgstr "Configuratie instellingen"
+
+#. module: dws_universal_discount
+#: model:ir.model,name:dws_universal_discount.model_account_move
+msgid "Journal Entries"
+msgstr "Boekingen"
+
+#. module: dws_universal_discount
+#: model:ir.model.fields,field_description:dws_universal_discount.field_account_move__ks_enable_discount
+#: model:ir.model.fields,field_description:dws_universal_discount.field_purchase_order__ks_enable_discount
+#: model:ir.model.fields,field_description:dws_universal_discount.field_sale_order__ks_enable_discount
+msgid "Ks Enable Discount"
+msgstr ""
+
+#. module: dws_universal_discount
+#: model:ir.model.fields,field_description:dws_universal_discount.field_account_move__ks_purchase_discount_account_id
+msgid "Ks Purchase Discount Account"
+msgstr ""
+
+#. module: dws_universal_discount
+#: model:ir.model.fields,field_description:dws_universal_discount.field_account_move__ks_sales_discount_account_id
+msgid "Ks Sales Discount Account"
+msgstr ""
+
+#. module: dws_universal_discount
+#: model:ir.model.fields,field_description:dws_universal_discount.field_account_move__discount_total
+#: model:ir.model.fields,field_description:dws_universal_discount.field_purchase_order__discount_total
+#: model:ir.model.fields,field_description:dws_universal_discount.field_sale_order__discount_total
+msgid "Line Discount Total"
+msgstr "Totaal regelkorting"
+
+#. module: dws_universal_discount
+#: model:ir.model.fields,field_description:dws_universal_discount.field_account_move__ks_amount_discount
+#: model:ir.model.fields,field_description:dws_universal_discount.field_account_move__ks_global_discount_rate
+#: model:ir.model.fields,field_description:dws_universal_discount.field_purchase_order__ks_amount_discount
+#: model:ir.model.fields,field_description:dws_universal_discount.field_purchase_order__ks_global_discount_rate
+#: model:ir.model.fields,field_description:dws_universal_discount.field_sale_order__ks_amount_discount
+#: model:ir.model.fields,field_description:dws_universal_discount.field_sale_order__ks_global_discount_rate
+#: model_terms:ir.ui.view,arch_db:dws_universal_discount.ks_res_config_settings_view_form
+msgid "Order Discount"
+msgstr "Projectkorting"
+
+#. module: dws_universal_discount
+#: model:ir.model.fields,field_description:dws_universal_discount.field_account_move__ks_global_discount_type
+#: model:ir.model.fields,field_description:dws_universal_discount.field_purchase_order__ks_global_discount_type
+#: model:ir.model.fields,field_description:dws_universal_discount.field_sale_order__ks_global_discount_type
+msgid "Order Discount Type"
+msgstr "Projectkorting type"
+
+#. module: dws_universal_discount
+#: model_terms:ir.ui.view,arch_db:dws_universal_discount.ks_discount_sale_order_form_inherited
+#: model_terms:ir.ui.view,arch_db:dws_universal_discount.ks_global_discount_invoice_view_form
+#: model_terms:ir.ui.view,arch_db:dws_universal_discount.ks_global_discount_purchase_view_form
+msgid "Order Discount Type:"
+msgstr "Projectkorting type:"
+
+#. module: dws_universal_discount
+#: model_terms:ir.ui.view,arch_db:dws_universal_discount.ks_discount_sale_order_form_inherited
+#: model_terms:ir.ui.view,arch_db:dws_universal_discount.ks_global_discount_invoice_view_form
+#: model_terms:ir.ui.view,arch_db:dws_universal_discount.ks_global_discount_purchase_view_form
+msgid "Order Discount:"
+msgstr "Projectkorting"
+
+#. module: dws_universal_discount
+#: model:ir.model.fields.selection,name:dws_universal_discount.selection__account_move__ks_global_discount_type__percent
+#: model:ir.model.fields.selection,name:dws_universal_discount.selection__purchase_order__ks_global_discount_type__percent
+#: model:ir.model.fields.selection,name:dws_universal_discount.selection__sale_order__ks_global_discount_type__percent
+msgid "Percentage"
+msgstr ""
+
+#. module: dws_universal_discount
+#: model:ir.model.fields,field_description:dws_universal_discount.field_res_company__ks_purchase_discount_account
+#: model:ir.model.fields,field_description:dws_universal_discount.field_res_config_settings__ks_purchase_discount_account
+msgid "Purchase Discount Account"
+msgstr ""
+
+#. module: dws_universal_discount
+#: model:ir.model,name:dws_universal_discount.model_purchase_order
+msgid "Purchase Order"
+msgstr "Inkooporder"
+
+#. module: dws_universal_discount
+#: model:ir.model,name:dws_universal_discount.model_sale_advance_payment_inv
+msgid "Sales Advance Payment Invoice"
+msgstr "Verkoop vooruibetaling factuur"
+
+#. module: dws_universal_discount
+#: model:ir.model.fields,field_description:dws_universal_discount.field_res_company__ks_sales_discount_account
+#: model:ir.model.fields,field_description:dws_universal_discount.field_res_config_settings__ks_sales_discount_account
+msgid "Sales Discount Account"
+msgstr ""
+
+#. module: dws_universal_discount
+#: model:ir.model,name:dws_universal_discount.model_sale_order
+msgid "Sales Order"
+msgstr "Verkooporder"
+
+#. module: dws_universal_discount
+#: model_terms:ir.ui.view,arch_db:dws_universal_discount.ks_res_config_settings_view_form
+msgid "Set default Order discount accounts for sale and purchase order."
+msgstr ""
+
+#. module: dws_universal_discount
+#: model:ir.model.fields,field_description:dws_universal_discount.field_sale_order__total_untaxed
+#: model:ir.model.fields,field_description:dws_universal_discount.field_purchase_order__total_untaxed
+#: model:ir.model.fields,field_description:dws_universal_discount.field_account_move__total_untaxed
+msgid "Total Untaxed Amount"
+msgstr "TOTAAL EXCL. BTW"
+
+#. module: sale
+#: model:ir.model.fields,field_description:sale.field_sale_order__amount_untaxed
+msgid "Untaxed Amount"
+msgstr "Totaal regels"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_purchase_order__amount_untaxed
+msgid "Untaxed Amount"
+msgstr "Totaal regels"
+
+#. module: account
+#: model:ir.model.fields,field_description:account.field_account_move__amount_untaxed
+msgid "Untaxed Amount"
+msgstr "Totaal regels"
+
+#. module: dws_universal_discount
+#: model_terms:ir.ui.view,arch_db:dws_universal_discount.ks_global_discount_invoice_report
+#: model_terms:ir.ui.view,arch_db:dws_universal_discount.ks_global_discount_sale_report
+msgid "<strong>Total (TAX excluded) </strong>"
+msgstr "<strong>Totaal excl. BTW </strong>"
